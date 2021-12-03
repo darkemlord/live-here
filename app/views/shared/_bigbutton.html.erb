@@ -4,7 +4,7 @@
       <i class="ro-button-bigbutton-tip-icon">tip</i>
     </div>
     <div class="mt-4 tipping-form" data-tip-popup-target="form">
-      <h2 class="my-5 center">How much?</h2>
+      <h2 class="my-5 center"><%= "Do you want to tip #{@performance.artist.name}?" %></h2>
       <%= render 'tips/form' %>
     </div>
   </div>
