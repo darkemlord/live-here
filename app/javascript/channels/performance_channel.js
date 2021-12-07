@@ -4,16 +4,16 @@ import anime from "animejs/lib/anime.es";
 const initPerformanceCable = () => {
   const messagesContainer = document.getElementById('messages');
   if (messagesContainer) {
-    console.log(messagesContainer)
     const id = messagesContainer.dataset.performanceId;
     consumer.subscriptions.create({ channel: "PerformanceChannel", id: id }, {
       received(data) {
-        console.log('EN EL INIT');
+        const placeholder = document.getElementById('message-placeholder');
+        if(placeholder) {
+          placeholder.remove();
+        }
         if(data.message) {
-        console.log('EN EL INIT IF');
           addMessages(data.message, messagesContainer)
         }else if(data.tip){
-        console.log('EN EL INIT ELSE');
           addTips(data.tip);
         }
       },
